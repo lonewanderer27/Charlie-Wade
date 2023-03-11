@@ -4,42 +4,16 @@ version = "0.1.0"
 description = ""
 authors = ["lonewanderer27 <adrianejames27@gmail.com>"]
 readme = "README.md"
-packages = [{include = "charlie_wade"}]
+packages = []
 
 [tool.poetry.dependencies]
 python = "^3.10"
-beautifulsoup4 = "4.11.1"
-cachetools = "5.2.0"
-certifi = "2022.9.24"
-charset-normalizer = "2.1.1"
-cssselect = "1.1.0"
-feedfinder2 = "0.0.4"
-feedparser = "6.0.10"
-filelock = "3.8.0"
-idna = "3.4"
-jieba3k = "0.35.1"
-joblib = "1.2.0"
-lxml = "4.9.1"
-newspaper3k = "0.2.8"
-nltk = "3.7"
-python-dateutil = "2.8.2"
-pyyaml = "6.0"
-regex = "2022.9.13"
-requests = "2.28.1"
-requests-file = "1.5.1"
-sgmllib3k = "1.0.0"
-six = "1.16.0"
-soupsieve = "2.3.2.post1"
-tinysegmenter = "0.3"
-tldextract = "3.4.0"
-tqdm = "4.64.1"
-urllib3 = "1.26.12"
+beautifulsoup4 = "^4.11.2"
+cachetools = "^5.3.0"
+newspaper3k = "^0.2.8"
 fastapi = "^0.94.0"
 uvicorn = {extras = ["standard"], version = "^0.21.0"}
 
-
-[tool.poetry.group.dev.dependencies]
-autopep8 = "^2.0.2"
 
 [build-system]
 requires = ["poetry-core"]
