@@ -133,8 +133,6 @@ def error_chapter_not_found(chapter: str):
         {'text': f'Error: Chapter {chapter} is not found.\n\nCheck if you entered the correct number.'}]}
     return json
 
-
-# app = Flask(__name__)
 app = FastAPI(title="Charlie Wade Backend API")
 
 
@@ -145,7 +143,7 @@ async def index():
 
 @app.get('/chapter', description="Return a single chapter", response_model=SuccessResponse)
 async def return_chapter(
-    chapter: int,
+    chapter: str,
 ):
     chapter_num = chapter
     try:
@@ -162,7 +160,8 @@ async def return_chapter(
         print(f'Charlie Wade Chapter {chapter_num}:\n')
         pprint(response, indent=2)
         return response
-    except Exception:
+    except Exception as e:
+        print(e)
         return error_chapter_not_found(chapter_num)
 
 
@@ -204,8 +203,7 @@ def return_latest_chapter():
 
 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))
-    uvicorn.run(app, host='0.0.0.0', port=port)
+    uvicorn.run(app, host='0.0.0.0')
 
 
 # list_of_links_tuple = get_list_of_links_tuple()
