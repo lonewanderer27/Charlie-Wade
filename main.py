@@ -1,7 +1,7 @@
 import os
 import textwrap
 from bs4 import BeautifulSoup
-from typing import List
+from typing import List, Union
 from cachetools import cached, TTLCache
 from newspaper import Article, Config
 import requests
@@ -90,7 +90,7 @@ def get_links(filtered_links: list) -> list:
 def get_chapter(
     filtered_links: list,
     chapter_num: str
-) -> str | bool:
+) -> Union[str, bool]:
     try:
         url = filter(
             lambda link: True if link[1] == chapter_num else False, filtered_links)
@@ -102,7 +102,7 @@ def get_chapter(
         return False
 
 
-def get_latest_chapter(filtered_links: list) -> str | bool:
+def get_latest_chapter(filtered_links: list) -> Union[str, bool]:
     try:
         url = filtered_links[-1][0]
         article = get_article(url)

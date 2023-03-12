@@ -1,3 +1,6 @@
 Pipfile.lock
 poetry.lock
 .vercel
+
+.space
+.deta
