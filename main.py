@@ -6,6 +6,7 @@ from cachetools import cached, TTLCache
 from newspaper import Article, Config
 import requests
 from fastapi import FastAPI, Response
+from fastapi.responses import RedirectResponse
 from pydantic import BaseModel
 import uvicorn
 from pprint import pprint
@@ -137,8 +138,8 @@ app = FastAPI(title="Charlie Wade Backend API")
 
 
 @app.get('/')
-async def index():
-    return 'Homepage'
+async def index() -> RedirectResponse:
+    return RedirectResponse(url='/docs')
 
 
 @app.get('/chapter', description="Return a single chapter", response_model=SuccessResponse)
